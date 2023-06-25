@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtenner ip addres v6 con Jquery</title>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            background-color: black;
+            color: aliceblue;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 25px;
+        }
+        .container{
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+        }
+        .ip{
+            color: rgb(72, 255, 0);
+            font-size: 35px;
+        }
+        .ip:hover{
+            background-color: rgba(255, 255, 255, 0.189);
+        }
+        .cp{
+            color: red;
+            font-size: 35px;
+        }
+        .cp:hover{
+            background-color: rgba(255, 255, 255, 0.189);
+        }
+
+    </style>
+
+<div class="container">
+<h1>Tu dirrecion ipv6 es : <span class="ip"></span></h1>
+<h1>Y eres de : <span class="cp"></span></h1>
+</div>
+<script type="text/javascript" defer>
+    $.getJSON("http://jsonip.com?callback=?", function (data) {
+        ip = data.ip;
+        cp = data.country
+        $(".ip").text(ip);
+        $(".cp").text(cp);
+        
+        console.log("Ipv6 =>",ip);
+    });
+</script>
+
+</body>
+</html>
